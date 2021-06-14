@@ -2,17 +2,17 @@ package com.geon.springstudy.service.book;
 
 import com.geon.springstudy.domain.book.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class BookService {
     @Autowired
-    @Qualifier("geonHeeBookRepository")
-    private BookRepository bookRepository;
+    private List<BookRepository> bookRepositories;
 
 
     public void printBookRepository() {
-        System.out.println(bookRepository.getClass());
+        bookRepositories.forEach(System.out::println);
     }
 }
